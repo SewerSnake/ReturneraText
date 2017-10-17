@@ -20,6 +20,14 @@ public class TestActivity extends AppCompatActivity {
     public void onEditClicked(View view) {
         Intent intent = new Intent(this, EditActivity.class);
         intent.putExtra("text", textView.getText().toString());
-        startActivity(intent);
+        startActivityForResult(intent, 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            textView.setText(data.getStringExtra("answer"));
+        }
     }
 }

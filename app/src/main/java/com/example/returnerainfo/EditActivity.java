@@ -20,6 +20,10 @@ public class EditActivity extends AppCompatActivity {
     }
 
     public void onDoneClick(View view) {
+        Intent intent = new Intent();
+        intent.putExtra("answer", editText.getText().toString());
 
+        setResult(1, intent);
+        finish(); //Avslutar aktiviteten!
     }
 }
